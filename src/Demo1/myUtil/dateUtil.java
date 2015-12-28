@@ -9,14 +9,22 @@ public  class dateUtil {
 	/**
 	 * @author fy
 	 * @return String
-	 * @param 根据要求格式返回今天日期
+	 * @param 根据要求格式返回日期，如果没有输入日期则返回今天日期
 	 * */
-	public static String getToday(String s){
-		String today = null;//返回一个正确格式的String
+	public static String getDate(Date date,String s){
+		if(s=null){
+			return "格式不正确";
+		}
 		SimpleDateFormat sdf =new SimpleDateFormat(s);
-		Date date =new Date();
-		today=sdf.format(date);
-		return today;
+		String resDate=null;
+		if(date=null){
+			Date todayD =new Date();
+			resDate=sdf.format(todayD);
+
+		}else{
+			resDate=sdf.format(date);
+		}
+		return resDate;
 	}
 
 	/**
